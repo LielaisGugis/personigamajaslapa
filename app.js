@@ -17,10 +17,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const slideshows = {
-    "gym-slideshow": ["https://github.com/LielaisGugis/personigamajaslapa/blob/main/images/es_gym1.webp", "images/gym2.webp"],
-    "football-slideshow": ["images/futbol1.webp", "images/futbol2.webp", "images/futbol3.webp"],
-    "music-slideshow": ["images/peepdefo1.webp", "images/peep2.webp"]
-  };
+  "gym-slideshow": [
+    { webp: "images/es_gym1.webp", jpg: "images/es_gym1.jpg" },
+    { webp: "images/gym2.webp", jpg: "images/gym2.jpg" }
+  ],
+  "football-slideshow": [
+    { webp: "images/futbol1.webp", jpg: "images/futbol1.jpg" },
+    { webp: "images/futbol2.webp", jpg: "images/futbol2.jpg" },
+    { webp: "images/futbol3.webp", jpg: "images/futbol3.jpg" }
+  ],
+  "music-slideshow": [
+    { webp: "images/peepdefo1.webp", jpg: "images/peepdefo1.jpg" },
+    { webp: "images/peep2.webp", jpg: "images/peep2.jpg" }
+  ]
+};
 
   Object.entries(slideshows).forEach(([id, images]) => {
     const container = document.getElementById(id);
