@@ -1,6 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Automātiski ieliek pašreizējo gadu kājenei
-  document.getElementById("year").textContent = new Date().getFullYear();
+  // Gads kājenē
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+  // Valodu pārslēgšana
+  const languageSwitcher = document.getElementById("languageSwitcher");
+  if (languageSwitcher) {
+    languageSwitcher.addEventListener("change", (e) => {
+      const lang = e.target.value;
+      document.querySelectorAll("[data-lv]").forEach((el) => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+    });
+  }
+
+  // Navigācijas izvēlne (menu toggle)
+  const menuToggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("mainNav");
+  if (menuToggle && nav) {
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("show");
+    });
+  }
 
   // Slideshow dati — bildes failu nosaukumi mapē images/
   const slideshows = {
