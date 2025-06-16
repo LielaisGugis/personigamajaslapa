@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mana Personīgā Mājaslapa</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="app.js" defer></script>
+</head>
+<body class="dark-theme">
+
+  <!-- Tēmas un valodu izvēle -->
+  <header>
+    <div class="top-bar">
+      <select id="languageSwitcher">
+        <option value="lv">Latviski</option>
+        <option value="en">English</option>
+      </select>
+      <button id="menuToggle">☰</button>
+    </div>
+    <h1 data-lv="Laipni lūgti manā mājaslapā" data-en="Welcome to my website">Laipni lūgti manā mājaslapā</h1>
+  </header>
+
+  <!-- Navigācija -->
+  <nav id="mainNav" class="hidden">
+    <ul>
+      <li><a href="#bio" data-lv="Biogrāfija" data-en="Biography">Biogrāfija</a></li>
+      <li><a href="#interests" data-lv="Intereses" data-en="Interests">Intereses</a></li>
+      <li><a href="#gallery" data-lv="Galerija" data-en="Gallery">Galerija</a></li>
+      <li><a href="#social" data-lv="Sociālie tīkli" data-en="Social Media">Sociālie tīkli</a></li>
+    </ul>
+  </nav>
+
+  <!-- Biogrāfija -->
+  <section id="bio">
+    <h2 data-lv="Biogrāfija" data-en="Biography">Biogrāfija</h2>
+    <p data-lv="Pazīstams un zināms kā Uģis Broks, dzimis 1. novembrī 2006. gadā, Rīgā. Taču visu savu dzīvi esmu dzīvojis Siguldā, kur ir sētas manas visspožākās atmiņas. Sava pirmā skola bija Siguldas 1. pamatskola, kurā nomācījos visas 9 klases un tālāk devos uz Rīgas Tehnisko koledžu, kurā vēl šobrīd apgūstu programmēšanas tehniķa kursu jau otro gadu." data-en="Known and known as Uģis Broks, was born on November 1, 2006, in Riga. However, I have lived my whole life in Sigulda, where my brightest memories are planted. My first school was Sigulda Primary School No. 1, where I completed all 9 grades and then went to Riga Technical College, where I am currently studying a programming technician course for the second year.
+ ">Pazīstams un zināms kā Uģis Broks, dzimis 1. novembrī 2006. gadā, Rīgā. Taču visu savu dzīvi esmu dzīvojis Siguldā, kur ir sētas manas visspožākās atmiņas. Sava pirmā skola bija Siguldas 1. pamatskola, kurā nomācījos visas 9 klases un tālāk devos uz Rīgas Tehnisko koledžu, kurā vēl šobrīd apgūstu programmēšanas tehniķa kursu jau otro gadu.
+</p>
+  </section>
+
+  <!-- Intereses -->
+  <section id="interests">
+    <h2 data-lv="Manas intereses" data-en="My Interests">Manas intereses</h2>
+
+    <div class="interest">
+      <h3 data-lv="Spēka zāle" data-en="Gym">Spēka zāle</h3>
+      <p data-lv="Ar spēka zāli nodarbojos kopš 2024. gada novembra, un šo hobiju es uzskatu par visizpalīdzīgāko, jo tas man palīdz ne tikai fiziski, bet arī mentāli, katru reizi izejot no zāles es jūtos emocionāli uzlādēts un gatavs visam. Parasti zāli apmeklēju 3 reizes nedēļā, taču gadās arī izņēmumi, kad nav iespējams nedēļas laikā tikt, tad vienmēr rodas risinājumi veikt fiziskas aktivitātes mājās.
+" data-en="I have been involved in the gym since November 2024, and I consider this hobby to be the most helpful, as it helps me not only physically but also mentally. Every time I leave the gym, I feel emotionally charged and ready for anything. Usually, I visit the gym 3 times a week, but there are exceptions when it is not possible to go during the week; then solutions always arise to perform physical activities at home.
+">Ar spēka zāli nodarbojos kopš 2024. gada novembra, un šo hobiju es uzskatu par visizpalīdzīgāko, jo tas man palīdz ne tikai fiziski, bet arī mentāli, katru reizi izejot no zāles es jūtos emocionāli uzlādēts un gatavs visam. Parasti zāli apmeklēju 3 reizes nedēļā, taču gadās arī izņēmumi, kad nav iespējams nedēļas laikā tikt, tad vienmēr rodas risinājumi veikt fiziskas aktivitātes mājās.
+</p>
+      <div class="slideshow-container" id="gym-slideshow"></div>
+    </div>
+
+    <div class="interest">
+      <h3 data-lv="Futbols" data-en="Football">Futbols</h3>
+      <p data-lv="Lai gan nepiedalos nevienā futbola pulciņā vai komandā, futbols tāpat ir viens no maniem hobijiem, jo bieži vien izeju ārā ar savu brāli vai draugiem uzspēlēt futbolu.
+" data-en="Although I do not participate in any football club or team, football is still one of my hobbies, as I often go outside with my brother or friends to play football.
+">Lai gan nepiedalos nevienā futbola pulciņā vai komandā, futbols tāpat ir viens no maniem hobijiem, jo bieži vien izeju ārā ar savu brāli vai draugiem uzspēlēt futbolu.
+</p>
+      <div class="slideshow-container" id="football-slideshow"></div>
+    </div>
+
+    <div class="interest">
+      <h3 data-lv="Mūzika" data-en="Music">Mūzika</h3>
+      <p data-lv="Jau kopš jaunas bērnības patīk klausīties mūziku. Mans mīļākais artists ir Lil Peep un mīļākā dziesma ir Stereo Love.
+" data-en="Since early childhood, I have enjoyed listening to music. My favorite artist is Lil Peep, and my favorite song is Stereo Love.">Jau kopš jaunas bērnības patīk klausīties mūziku. Mans mīļākais artists ir Lil Peep un mīļākā dziesma ir Stereo Love.
+</p>
+      <div class="slideshow-container" id="music-slideshow"></div>
+    </div>
+  </section>
+
+  <!-- Galerija -->
+  <section id="gallery">
+    <h2 data-lv="Galerija" data-en="Gallery">Galerija</h2>
+    <div class="gallery-container">
+      <figure>
+        <img src="images/feja1.jpg" alt="KAKIS_FEJA" />
+        <figcaption data-lv="Mans kaķis Feja" data-en="My cat Feja">Mans kaķis feja</figcaption>
+      </figure>
+      <figure>
+        <img src="images/otis2.jpg" alt="sunuks_otis" />
+        <figcaption data-lv="Mans sunuks Otis" data-en="My doggy Otis">Suņuks Otis</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Sociālie tīkli -->
+  <section id="social">
+    <h2 data-lv="Sociālie tīkli" data-en="Social media">Sociālie tīkli</h2>
+    <ul class="social-links">
+      <li><a href="https://www.instagram.com/ugzons/"><img src="images/instagram.jpg" alt="Instagram" /> Instagram</a></li>
+      <li><a href="https://www.facebook.com/ugis.broks"><img src="images/facebook.png" alt="Facebook" /> Facebook</a></li>
+      <li><a href="https://open.spotify.com/user/31idkftttk7syugf43omkxyk73o4"><img src="images/spotfiy.png" alt="Spotify" /> Spotify</a></li>
+    </ul>
+  </section>
+
+  <!-- Kājene -->
+  <footer>
+    <p>&copy; <span id="year"></span> Uģis Broks. Visas tiesības aizsargātas.</p>
+  </footer>
+</body>
+</html>
