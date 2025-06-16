@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const slideshows = {
-    "gym-slideshow": ["images/es_gym1.jpg", "images/gym2.jpg"],
-    "football-slideshow": ["images/futbol1.jpg", "images/futbol2.jpg", "images/futbol3.jpg"],
-    "music-slideshow": ["images/peepdefo1.jpg", "images/peep2.png"]
+    "gym-slideshow": ["images/es_gym1.webp", "images/gym2.webp"],
+    "football-slideshow": ["images/futbol1.webp", "images/futbol2.webp", "images/futbol3.webp"],
+    "music-slideshow": ["images/peepdefo1.webp", "images/peep2.webp"]
   };
 
   Object.entries(slideshows).forEach(([id, images]) => {
