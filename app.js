@@ -33,34 +33,57 @@ document.addEventListener("DOMContentLoaded", () => {
 };
 
   Object.entries(slideshows).forEach(([id, images]) => {
-    const container = document.getElementById(id);
-    if (!container) return;
+  const container = document.getElementById(id);
+  if (!container) return;
 
-    let currentIndex = 0;
-    const img = document.createElement("img");
-    img.src = images[currentIndex];
-    img.alt = "Slideshow image";
-    img.style.width = "300px";
-    img.style.height = "200px";
-    img.style.objectFit = "cover";
-    img.style.borderRadius = "8px";
-    container.appendChild(img);
+  let currentIndex = 0;
 
-    const prevBtn = document.createElement("button");
-    prevBtn.textContent = "◀";
-    prevBtn.className = "slideshow-btn prev";
-    prevBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      img.src = images[currentIndex];
-    });
+  // Izveido picture elements
+  const picture = document.createElement("picture");
 
-    const nextBtn = document.createElement("button");
-    nextBtn.textContent = "▶";
-    nextBtn.className = "slideshow-btn next";
-    nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % images.length;
-      img.src = images[currentIndex];
-    });
+  const source = document.createElement("source");
+  source.type = "image/webp";
+
+  const img = document.createElement("img");
+  img.alt = "Slideshow image";
+  img.width = 300;
+  img.height = 200;
+  img.style.objectFit = "cover";
+  img.style.borderRadius = "8px";
+
+  picture.appendChild(source);
+  picture.appendChild(img);
+  container.appendChild(picture);
+
+  // Funkcija, lai iestatītu pašreizējo attēlu
+  function updateImage() {
+    source.srcset = images[currentIndex].webp;
+    img.src = images[currentIndex].jpg;
+  }
+
+  updateImage();
+
+  // Pogu izveide un pievienošana
+  const prevBtn = document.createElement("button");
+  prevBtn.textContent = "◀";
+  prevBtn.className = "slideshow-btn prev";
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateImage();
+  });
+
+  const nextBtn = document.createElement("button");
+  nextBtn.textContent = "▶";
+  nextBtn.className = "slideshow-btn next";
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateImage();
+  });
+
+  container.appendChild(prevBtn);
+  container.appendChild(nextBtn);
+});
+
 
     container.appendChild(prevBtn);
     container.appendChild(nextBtn);
