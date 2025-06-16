@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Gads kājenē
   const yearSpan = document.getElementById("year");
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
+  // Valodu pārslēgšana
   const languageSwitcher = document.getElementById("languageSwitcher");
   languageSwitcher.addEventListener("change", (e) => {
     const lang = e.target.value;
@@ -10,82 +12,66 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Navigācijas izvēlne
   const menuToggle = document.getElementById("menuToggle");
   const nav = document.getElementById("mainNav");
   menuToggle.addEventListener("click", () => {
     nav.classList.toggle("show");
   });
 
+  // Slideshow bildes
   const slideshows = {
-  "gym-slideshow": [
-    { webp: "images/es_gym1.webp", jpg: "images/es_gym1.jpg" },
-    { webp: "images/gym2.webp", jpg: "images/gym2.jpg" }
-  ],
-  "football-slideshow": [
-    { webp: "images/futbol1.webp", jpg: "images/futbol1.jpg" },
-    { webp: "images/futbol2.webp", jpg: "images/futbol2.jpg" },
-    { webp: "images/futbol3.webp", jpg: "images/futbol3.jpg" }
-  ],
-  "music-slideshow": [
-    { webp: "images/peepdefo1.webp", jpg: "images/peepdefo1.jpg" },
-    { webp: "images/peep2.webp", jpg: "images/peep2.jpg" }
-  ]
-};
+    "gym-slideshow": ["es_gym1.webp", "gym2.webp"],
+    "football-slideshow": ["futbol1.webp", "futbol2.webp", "futbol3.webp"],
+    "music-slideshow": ["peepdefo1.webp", "peep2.webp"]
+  };
 
-  Object.entries(slideshows).forEach(([id, images]) => {
-  const container = document.getElementById(id);
-  if (!container) return;
+  // Slideshow izveide
+  Object.entries(slideshows).forEach(([id, imageNames]) => {
+    const container = document.getElementById(id);
+    if (!container) return;
 
-  let currentIndex = 0;
+    let index = 0;
 
-  // Izveido picture elements
-  const picture = document.createElement("picture");
+    const img = document.createElement("img");
+    img.src = `images/${imageNames[index]}`;
+    img.alt = "Slideshow image";
+    img.width = 300;
+    img.height = 200;
+    img.style.objectFit = "cover";
+    img.style.borderRadius = "8px";
+    container.appendChild(img);
 
-  const source = document.createElement("source");
-  source.type = "image/webp";
+    // Pogas
+    const prev = document.createElement("button");
+    prev.textContent = "◀";
+    prev.className = "slideshow-btn prev";
 
-  const img = document.createElement("img");
-  img.alt = "Slideshow image";
-  img.width = 300;
-  img.height = 200;
-  img.style.objectFit = "cover";
-  img.style.borderRadius = "8px";
+    const next = document.createElement("button");
+    next.textContent = "▶";
+    next.className = "slideshow-btn next";
 
-  picture.appendChild(source);
-  picture.appendChild(img);
-  container.appendChild(picture);
+    container.appendChild(prev);
+    container.appendChild(next);
 
-  // Funkcija, lai iestatītu pašreizējo attēlu
-  function updateImage() {
-    source.srcset = images[currentIndex].webp;
-    img.src = images[currentIndex].jpg;
-  }
+    const updateImage = () => {
+      img.src = `images/${imageNames[index]}`;
+    };
 
-  updateImage();
+    prev.addEventListener("click", () => {
+      index = (index - 1 + imageNames.length) % imageNames.length;
+      updateImage();
+    });
 
-  // Pogu izveide un pievienošana
-  const prevBtn = document.createElement("button");
-  prevBtn.textContent = "◀";
-  prevBtn.className = "slideshow-btn prev";
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateImage();
-  });
+    next.addEventListener("click", () => {
+      index = (index + 1) % imageNames.length;
+      updateImage();
+    });
 
-  const nextBtn = document.createElement("button");
-  nextBtn.textContent = "▶";
-  nextBtn.className = "slideshow-btn next";
-  nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateImage();
-  });
-
-  container.appendChild(prevBtn);
-  container.appendChild(nextBtn);
-});
-
-
-    container.appendChild(prevBtn);
-    container.appendChild(nextBtn);
+    // Automātiska slīdēšana
+    setInterval(() => {
+      index = (index + 1) % imageNames.length;
+      updateImage();
+    }, 5000); // ik pēc 5 sekundēm
   });
 });
