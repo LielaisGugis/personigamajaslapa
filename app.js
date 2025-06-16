@@ -70,6 +70,5 @@ document.addEventListener("DOMContentLoaded", () => {
       updateImage();
     });
 
-    // Automātiskā maiņa noņemta
   });
 });
