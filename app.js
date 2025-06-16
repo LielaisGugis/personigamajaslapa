@@ -23,55 +23,53 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Slideshow dati — bildes failu nosaukumi mapē images/
+  // Slideshow bildes
   const slideshows = {
     "gym-slideshow": ["es_gym1.webp", "gym2.webp"],
     "football-slideshow": ["futbol1.webp", "futbol2.webp", "futbol3.webp"],
     "music-slideshow": ["peepdefo1.webp", "peep2.webp"]
   };
 
-  Object.entries(slideshows).forEach(([id, images]) => {
+  Object.entries(slideshows).forEach(([id, imageNames]) => {
     const container = document.getElementById(id);
     if (!container) return;
 
-    let currentIndex = 0;
+    let index = 0;
 
-    // Izveido bildi
     const img = document.createElement("img");
-    img.src = `images/${images[currentIndex]}`;
-    img.alt = `${id} slideshow image`;
+    img.src = `images/${imageNames[index]}`;
+    img.alt = "Slideshow image";
+    img.width = 300;
+    img.height = 200;
+    img.style.objectFit = "cover";
+    img.style.borderRadius = "8px";
     container.appendChild(img);
 
-    // Izveido pogas iepriekš un nākamais
-    const prevBtn = document.createElement("button");
-    prevBtn.textContent = "◀";
-    prevBtn.className = "slideshow-btn";
+    const prev = document.createElement("button");
+    prev.textContent = "◀";
+    prev.className = "slideshow-btn prev";
 
-    const nextBtn = document.createElement("button");
-    nextBtn.textContent = "▶";
-    nextBtn.className = "slideshow-btn";
+    const next = document.createElement("button");
+    next.textContent = "▶";
+    next.className = "slideshow-btn next";
 
-    container.appendChild(prevBtn);
-    container.appendChild(nextBtn);
+    container.appendChild(prev);
+    container.appendChild(next);
 
-    function updateImage() {
-      img.src = `images/${images[currentIndex]}`;
-    }
+    const updateImage = () => {
+      img.src = `images/${imageNames[index]}`;
+    };
 
-    prevBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
+    prev.addEventListener("click", () => {
+      index = (index - 1 + imageNames.length) % imageNames.length;
       updateImage();
     });
 
-    nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % images.length;
+    next.addEventListener("click", () => {
+      index = (index + 1) % imageNames.length;
       updateImage();
     });
 
-    // Automātiska maiņa ik pēc 5 sekundēm
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateImage();
-    }, 5000);
+    // Automātiskā maiņa noņemta
   });
 });
