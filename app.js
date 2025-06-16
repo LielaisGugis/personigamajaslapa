@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const slideshows = {
-    "gym-slideshow": ["images/es_gym1.webp", "images/gym2.webp"],
+    "gym-slideshow": ["https://github.com/LielaisGugis/personigamajaslapa/blob/main/images/es_gym1.webp", "images/gym2.webp"],
     "football-slideshow": ["images/futbol1.webp", "images/futbol2.webp", "images/futbol3.webp"],
     "music-slideshow": ["images/peepdefo1.webp", "images/peep2.webp"]
   };
